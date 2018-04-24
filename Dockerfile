@@ -29,3 +29,6 @@ RUN mkdir -p /tmp/tflint \
     && mv /tmp/terraform/terraform /usr/local/bin/terraform\
     && mv /tmp/tflint/tflint /usr/local/bin/tflint\
     && rm -rf /tmp/terraform /tmp/tflint
+
+# rewrite url schema for GitHub URLs.
+RUN git config --global url."https://github.com/".insteadOf 'git@github.com:'
