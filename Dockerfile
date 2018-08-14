@@ -16,7 +16,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
-RUN gem install mdl
+RUN gem install mdl bundler
 
 RUN pip install awscli proselint
 
