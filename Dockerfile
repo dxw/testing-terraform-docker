@@ -7,6 +7,7 @@ RUN apt-get update \
     python \
     ruby \
     ruby-dev \
+    build-essential \
     python-pip \
     python-setuptools \
     wget \
