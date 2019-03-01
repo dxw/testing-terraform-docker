@@ -14,13 +14,12 @@ RUN apt-get update \
     unzip \
     groff \
     shellcheck \
-    yamllint \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
 RUN gem install mdl bundler
 
-RUN pip install awscli proselint
+RUN pip install awscli proselint yamllint
 
 RUN mkdir -p /tmp/tflint \
     && mkdir -p /tmp/terraform \
