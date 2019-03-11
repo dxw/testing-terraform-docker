@@ -23,7 +23,7 @@ RUN pip install awscli proselint yamllint
 
 RUN mkdir -p /tmp/tflint \
     && mkdir -p /tmp/terraform \
-    && wget https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip -O /tmp/terraform/terraform.zip\
+    && wget https://releases.hashicorp.com/terraform/0.11.12/terraform_0.11.12_linux_amd64.zip -O /tmp/terraform/terraform.zip\
     && wget https://github.com/wata727/tflint/releases/download/v0.7.4/tflint_linux_amd64.zip -O /tmp/tflint/tflint.zip\
     && unzip /tmp/terraform/terraform.zip -d /tmp/terraform\
     && unzip /tmp/tflint/tflint.zip -d /tmp/tflint\
