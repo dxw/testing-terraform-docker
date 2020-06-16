@@ -27,7 +27,6 @@ RUN git clone https://github.com/rbenv/rbenv-default-gems.git "$(rbenv root)/plu
 
 RUN git clone https://github.com/tfutils/tfenv.git ~/.tfenv \
     && ln -s ~/.tfenv/bin/* /usr/local/bin
-RUN tfenv install 0.11.14
 
 RUN mkdir -p /tmp/tflint \
     && wget https://github.com/wata727/tflint/releases/download/v0.8.0/tflint_linux_amd64.zip -O /tmp/tflint/tflint.zip\
