@@ -29,9 +29,9 @@ RUN git clone https://github.com/tfutils/tfenv.git ~/.tfenv \
     && ln -s ~/.tfenv/bin/* /usr/local/bin
 
 RUN mkdir -p /tmp/tflint \
-    && wget https://github.com/wata727/tflint/releases/download/v0.8.0/tflint_linux_amd64.zip -O /tmp/tflint/tflint.zip\
-    && unzip /tmp/tflint/tflint.zip -d /tmp/tflint\
-    && mv /tmp/tflint/tflint /usr/local/bin/tflint\
+    && wget https://github.com/wata727/tflint/releases/download/v0.16.2/tflint_linux_amd64.zip -O /tmp/tflint/tflint.zip \
+    && unzip /tmp/tflint/tflint.zip -d /tmp/tflint \
+    && mv /tmp/tflint/tflint /usr/local/bin/tflint \
     && rm -rf /tmp/tflint
 
 # rewrite url schema for GitHub URLs.
