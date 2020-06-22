@@ -3,16 +3,19 @@ FROM ubuntu:bionic
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \
-    git \
-    python \
     build-essential \
+    curl \
+    git \
+    groff \
+    libreadline-dev \
+    libssl-dev \
+    python \
     python-pip \
     python-setuptools \
-    wget \
-    curl \
-    unzip \
-    groff \
     shellcheck \
+    unzip \
+    wget \
+    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
