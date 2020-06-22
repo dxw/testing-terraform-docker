@@ -21,6 +21,8 @@ RUN pip install awscli proselint yamllint
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
     && ln -s ~/.rbenv/bin/* /usr/local/bin
 
+RUN git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)/plugins/ruby-build"
+
 RUN git clone https://github.com/rbenv/rbenv-default-gems.git "$(rbenv root)/plugins/rbenv-default-gems" \
     && echo "bundler" >> "$(rbenv root)/default-gems" \
     && echo "mdl" >> "$(rbenv root)/default-gems"
