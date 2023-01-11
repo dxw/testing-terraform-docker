@@ -1,5 +1,8 @@
 FROM ubuntu:bionic
 
+ARG SHELLCHECK_VERSION="v0.9.0"
+ARG RBENV_VERSION="v1.2.0"
+
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \
@@ -12,7 +15,6 @@ RUN apt-get update \
     python \
     python-pip \
     python-setuptools \
-    shellcheck \
     unzip \
     wget \
     zlib1g-dev \
@@ -20,10 +22,16 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
+RUN wget -qO- "https://github.com/koalaman/shellcheck/releases/download/${SHELLCHECK_VERSION}/shellcheck-${SHELLCHECK_VERSION}.linux.x86_64.tar.xz" | tar -xJf - \
+    && cp "shellcheck-${SHELLCHECK_VERSION}/shellcheck" /usr/local/bin/shellcheck \
+    && rm -rf "shellcheck-${SHELLCHECK_VERSION}"
+
 RUN pip install awscli proselint yamllint
 
-RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
+RUN git clone https://github.com/rbenv/rbenv.git --depth 1 --branch "$RBENV_VERSION" ~/.rbenv \
     && ln -s ~/.rbenv/bin/* /usr/local/bin
+RUN echo 'export PATH="$PATH:/root/.rbenv/libexec"' >> /root/.bashrc
+ENV PATH="$PATH:/root/.rbenv/libexec"
 
 RUN git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)/plugins/ruby-build"
 
