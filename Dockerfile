@@ -16,6 +16,7 @@ RUN apt-get update \
     unzip \
     wget \
     zlib1g-dev \
+    jq \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
