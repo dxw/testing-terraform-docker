@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:jammy
 
 ARG SHELLCHECK_VERSION="v0.9.0"
 ARG RBENV_VERSION="v1.2.0"
