@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:jammy
 
 ARG SHELLCHECK_VERSION="v0.9.0"
 ARG RBENV_VERSION="v1.2.0"
@@ -12,13 +12,13 @@ RUN apt-get update \
     groff \
     libreadline-dev \
     libssl-dev \
-    python \
-    python-pip \
-    python-setuptools \
     unzip \
     wget \
     zlib1g-dev \
     jq \
+    python3 \
+    python3-pip \
+    python3-setuptools \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
